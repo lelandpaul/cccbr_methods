@@ -140,7 +140,4 @@ cython_debug/
 # Venv
 venv/
 
-# DB
-*.db
-
 
