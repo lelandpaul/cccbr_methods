@@ -18,7 +18,10 @@ for mset in soup.find_all('methodset'):
 
     for method in mset.find_all('method'):
         if not method.name: continue # catches the extraneous '\n's
-        print('Working on: ' + method.name)
+        if session.query(Method).get(int(method['id'][1:])):
+            # We've already imported this one
+            continue
+        print('Working on: ' + method.title.string)
         method_db = Method(id=int(method['id'][1:]))
         for prop, val in mset_dict.items():
             print('... ' + str(prop) +','+ str(val))
@@ -37,13 +40,13 @@ for mset in soup.find_all('methodset'):
             setattr(method_db, tag.name, tag.string)
 
         # get all the references
-        if not method.references:
-            continue
-        print('... references:')
-        for tag in method.references.children:
-            if not tag.name: continue # catches the extraneous '\n's
-            print('... ' + str(tag))
-            setattr(method_db, tag.name, tag.string)
+        if method.references:
+            print('... references:')
+            for tag in method.references.children:
+                if not tag.name: continue # catches the extraneous '\n's
+                print('... ' + str(tag))
+                setattr(method_db, tag.name, tag.string)
+
         session.add(method_db)
 
         # Next, do the performances
@@ -68,6 +71,7 @@ for mset in soup.find_all('methodset'):
             for tag in performance.location.children:
                 if not tag.name: continue # catches the extraneous '\n's
                 print('... ... ' + str(tag))
+
             performance_db.method = method_db
             session.add(performance_db)
 
