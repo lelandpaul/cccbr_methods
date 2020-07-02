@@ -4,7 +4,7 @@
 
 This is a (SQLAlchemy)[https://sqlalchemy.org] + SQLite3 interface to the (CCCBR Methods Library)[https://cccbr.github.io/methods-library/index.html]. An (Alembic)[https://alembic.sqlalchemy.org/en/latest/] revision framework is included for tracking revisions to the database schema, though I don't anticipate needing to change that much.
 
-# Database column
+# Database columns
 
 The database has two columns — one for methods, and one for significant performances. The database is deliberately sparse — many columns will be null if that information was not included in the original Library.
 
@@ -67,3 +67,7 @@ The `Method` class provides access to objects from the `methods` table in the da
 The `Performance` class provides access to objects from the `performances` table in the database. All columns in the table are accessible as properties with the same name and type. Additionally, a helper property `method` returns a `Method` object corresponding to the method linked to the performance in the database.
 
 `Performance` also provides an `__iter__` object over the columns in the database; in particular, `dict(<Performance>)` will give you a dictionary of `{column_name: column_value}`.
+
+# Updating the Database
+
+`python import.py` will import any methods & performances in `CCCBR_methods.xml` not already in the database.
