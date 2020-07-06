@@ -34,6 +34,7 @@ Other attributes can be passed as keyword arguments to further filter results:
 
 ```
 
+As a convenience for more complicated searches, `Method.query` returns a SQLAlchemy `Query` object suitable for further filtering.
 
 # Database columns
 

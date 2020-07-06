@@ -65,6 +65,10 @@ class Method(Base):
         query = session.query(Method).filter(Method.title.like('%' + search_string + '%'))
         return query.filter_by(**kwargs).all()
 
+    @staticmethod
+    def query():
+        return session.query(Method)
+
     @property
     def full_notation(self):
         if not ',' in self.notation: return self.notation
