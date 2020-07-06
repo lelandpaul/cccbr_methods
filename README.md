@@ -4,6 +4,37 @@
 
 This is a (SQLAlchemy)[https://sqlalchemy.org] + SQLite3 interface to the (CCCBR Methods Library)[https://cccbr.github.io/methods-library/index.html]. An (Alembic)[https://alembic.sqlalchemy.org/en/latest/] revision framework is included for tracking revisions to the database schema, though I don't anticipate needing to change that much.
 
+
+```
+
+>>> Method.get('Double Norwich', stage=8).full_notation # Full place notation
+'-.14.-.36.-.58.-.18.-.58.-.36.-.14.-.18'
+
+```
+
+# Searching for methods
+
+The `Method` class provides two alternate constructors that search the database: `Method.get` and `Method.search`; they differ only in that `get` returns the first result, while `search` returns a list of all results.
+
+Both methods take a `search_string` argument; a method matches a search string if the string appears anywhere in `Method.title` (e.g. `Method.search("Surprise")` will return all Surprise methods.)
+
+```
+>>> Method.get('Double Norwich Court Bob Major') # Returns the first result
+<Method Double Norwich Court Bob Major>
+
+>>> Method.search('Norwich Court') # Returns all results
+[<Method Single Norwich Court Bob Major>, <Method Double Norwich Court Bob Major>, <Method Single Norwich Court Bob Caters>, <Method Double Norwich Court Bob Caters>, <Method Double Norwich Court Bob Royal>, <Method Double Norwich Court Bob Cinques>, <Method Double Norwich Court Bob Maximus>]
+```
+
+Other attributes can be passed as keyword arguments to further filter results:
+
+```
+>>> Method.search('Double Norwich', stage=8) # Filter results further
+[<Method Double Norwich Court Bob Major>]
+
+```
+
+
 # Database columns
 
 The database has two columns — one for methods, and one for significant performances. The database is deliberately sparse — many columns will be null if that information was not included in the original Library.

@@ -49,6 +49,21 @@ class Method(Base):
 
     performances = relationship("Performance", back_populates="method")
 
+    @staticmethod
+    def get(search_string='', *args, **kwargs):
+        """
+        Search for a method in the database and return the first result.
+        """
+        query = session.query(Method).filter(Method.title.like('%' + search_string + '%'))
+        return query.filter_by(**kwargs).first()
+
+    @staticmethod
+    def search(search_string='', *args, **kwargs):
+        """
+        Search for a method in the database and return all results.
+        """
+        query = session.query(Method).filter(Method.title.like('%' + search_string + '%'))
+        return query.filter_by(**kwargs).all()
 
     @property
     def full_notation(self):
