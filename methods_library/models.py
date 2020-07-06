@@ -8,7 +8,7 @@ from re import sub
 
 # SQLAlchemy Setup
 Base = declarative_base()
-engine = create_engine('sqlite:///methods.db')
+engine = create_engine('sqlite:///data/methods.db')
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -53,9 +53,14 @@ class Method(Base):
     @property
     def full_notation(self):
         if not ',' in self.notation: return self.notation
-        symmetric, division = self.notation.split(',')
-        symmetric = sub('-','.-.',symmetric).strip('.').split('.')
-        return ''.join(symmetric + symmetric[:-1][::-1]) + division
+
+        
+
+        segments = [seg.split('.') for seg in sub('-','.-.',self.notation).strip('.').split(',')]
+
+        full_notation = ['.'.join(seg + seg[:-1][::-1]) if len(seg) > 1 else seg[0] for seg in segments]
+
+        return '.'.join(full_notation)
 
     @property
     def full_notation_list(self):
