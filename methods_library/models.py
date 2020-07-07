@@ -5,10 +5,13 @@ from sqlalchemy import Table, Column, Integer, String, Date, ForeignKey, Boolean
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.orm import sessionmaker
 from re import sub
+import os
+
+module_path = '/'.join(__file__.split('/')[:-1])
 
 # SQLAlchemy Setup
 Base = declarative_base()
-engine = create_engine('sqlite:///methods_library/data/methods.db')
+engine = create_engine('sqlite:///{}/data/methods.db'.format(module_path))
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()

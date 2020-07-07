@@ -1,4 +1,4 @@
-from models import *
+from .models import *
 from bs4 import BeautifulSoup
 from datetime import date
 import urllib.request
