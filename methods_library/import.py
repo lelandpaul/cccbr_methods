@@ -1,7 +1,6 @@
 from models import *
 from bs4 import BeautifulSoup
 from datetime import date
-import dload
 import urllib.request
 import zipfile
 import io

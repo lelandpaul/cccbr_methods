@@ -8,7 +8,7 @@ from re import sub
 
 # SQLAlchemy Setup
 Base = declarative_base()
-engine = create_engine('sqlite:///data/methods.db')
+engine = create_engine('sqlite:///methods_library/data/methods.db')
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
