@@ -1,9 +1,6 @@
 # CCCBR Methods Database
 
-**Current as of: 2 July 2020**
-
-This is a (SQLAlchemy)[https://sqlalchemy.org] + SQLite3 interface to the (CCCBR Methods Library)[https://cccbr.github.io/methods-library/index.html]. An (Alembic)[https://alembic.sqlalchemy.org/en/latest/] revision framework is included for tracking revisions to the database schema, though I don't anticipate needing to change that much.
-
+This is a (SQLAlchemy)[https://sqlalchemy.org] + SQLite3 interface to the (CCCBR Methods Library)[https://cccbr.github.io/methods-library/index.html].
 
 ```
 
@@ -103,3 +100,7 @@ The `Performance` class provides access to objects from the `performances` table
 # Updating the Database
 
 `python import.py` will import any methods & performances in `CCCBR_methods.xml` not already in the database.
+
+# License information
+
+This code is released under an MIT license. The CCCBR Methods database is copyright 2020 Central Council of Church Bell Ringers.

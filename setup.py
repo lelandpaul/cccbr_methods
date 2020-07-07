@@ -19,7 +19,7 @@ setup(name='methods_library',
           'lxml',
       ],
       entry_points = {
-          'console_scripts': ['update-methods-library=methods_library.import:main'],
+          'console_scripts': ['update-cccbr-library=methods_library.update:update_database'],
       },
       include_package_data=True,
       zip_safe=False)

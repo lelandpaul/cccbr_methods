@@ -6,7 +6,7 @@ import zipfile
 import io
 
 
-def main():
+def update_database():
 
     print('Downloading current library')
     byte = io.BytesIO()
@@ -95,4 +95,4 @@ def main():
             
 
 if __name__ == '__main__':
-    main()
+    update_database()
