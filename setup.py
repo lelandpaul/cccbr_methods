@@ -9,5 +9,7 @@ setup(name='methods_library',
       license='MIT',
       packages=['methods_library'],
       install_requires=[
+          'bs4',
+          'sqlalchemy',
       ],
       zip_safe=False)
