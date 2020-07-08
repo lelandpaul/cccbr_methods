@@ -12,7 +12,7 @@ setup(name='cccbr_methods',
       author='Leland Paul Kusmer',
       author_email='me@lelandpaul.com',
       license='MIT',
-      packages=['methods_library'],
+      packages=['cccbr_methods'],
       install_requires=[
           'bs4',
           'sqlalchemy',
