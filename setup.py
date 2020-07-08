@@ -4,11 +4,11 @@ def readme():
     with open('README.md') as f:
         return f.read()
 
-setup(name='methods_library',
+setup(name='cccbr_methods',
       version='0.9',
       description='A Pythonic interface to the CCCBR Methods Library',
       long_description=readme(),
-      url='http://github.com/lelandpaul/methods_library',
+      url='http://github.com/lelandpaul/cccbr_methods',
       author='Leland Paul Kusmer',
       author_email='me@lelandpaul.com',
       license='MIT',
@@ -19,7 +19,7 @@ setup(name='methods_library',
           'lxml',
       ],
       entry_points = {
-          'console_scripts': ['update-cccbr-library=methods_library.update:update_database'],
+          'console_scripts': ['update-cccbr-methods=cccbr_methods.update:update_database'],
       },
       include_package_data=True,
       zip_safe=False)
