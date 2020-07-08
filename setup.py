@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='cccbr_methods',
-      version='0.92',
+      version='1.0',
       description='A Pythonic interface to the CCCBR Methods Library',
       long_description=readme(),
       long_description_content_type='text/markdown',

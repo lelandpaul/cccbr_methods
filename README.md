@@ -36,6 +36,10 @@ As a convenience for more complicated searches, `cccbr_methods.query` returns a 
 
 All of these are also available directly from the `Method` object, e.g. `Method.get` is equivalent to `cccbr_methods.get`.
 
+# Installation
+
+Install with `pip install cccbr_methods`, or download and run `python setup.py`.
+
 # Database columns
 
 The database has two columns — one for methods, and one for significant performances. The database is deliberately sparse — many columns will be null if that information was not included in the original Library.
