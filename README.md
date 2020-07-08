@@ -1,6 +1,6 @@
 # CCCBR Methods Library
 
-This is a (SQLAlchemy)[https://sqlalchemy.org] + SQLite3 interface to the (CCCBR Methods Library)[https://cccbr.github.io/methods-library/index.html].
+This is a [SQLAlchemy](https://sqlalchemy.org) + SQLite3 interface to the [CCCBR Methods Library](https://cccbr.github.io/methods-library/index.html).
 
 ```
 
