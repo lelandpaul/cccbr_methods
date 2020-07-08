@@ -9,6 +9,10 @@ This is a [SQLAlchemy](https://sqlalchemy.org) + SQLite3 interface to the [CCCBR
 
 ```
 
+# Installation
+
+Install with `pip install cccbr_methods`, or download and run `python setup.py`.
+
 # Searching for methods
 
 The module provides two methods for searching the database: `get` and `search`; they differ only in that `get` returns the first result, while `search` returns a list of all results.
@@ -36,9 +40,6 @@ As a convenience for more complicated searches, `cccbr_methods.query` returns a 
 
 All of these are also available directly from the `Method` object, e.g. `Method.get` is equivalent to `cccbr_methods.get`.
 
-# Installation
-
-Install with `pip install cccbr_methods`, or download and run `python setup.py`.
 
 # Database columns
 
