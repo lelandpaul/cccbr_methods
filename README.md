@@ -13,27 +13,28 @@ This is a (SQLAlchemy)[https://sqlalchemy.org] + SQLite3 interface to the (CCCBR
 
 The module provides two methods for searching the database: `get` and `search`; they differ only in that `get` returns the first result, while `search` returns a list of all results.
 
-Both methods take a `search_string` argument; a method matches a search string if the string appears anywhere in `Method.title` (e.g. `cccbr_library.search("Surprise")` will return all Surprise methods.)
+Both methods take a `search_string` argument; a method matches a search string if the string appears anywhere in `Method.title` (e.g. `cccbr_methods.search("Surprise")` will return all Surprise methods.) `get` will preferentially return exact matches of `search_string`.
 
 ```
->>> cccbr_library.get('Double Norwich Court Bob Major') # Returns the first result
+>>> cccbr_methods.get('Double Norwich Court Bob Major') # Returns the first result
 <Method Double Norwich Court Bob Major>
 
->>> cccbr_library.search('Norwich Court') # Returns all results
+>>> cccbr_methods.search('Norwich Court') # Returns all results
 [<Method Single Norwich Court Bob Major>, <Method Double Norwich Court Bob Major>, <Method Single Norwich Court Bob Caters>, <Method Double Norwich Court Bob Caters>, <Method Double Norwich Court Bob Royal>, <Method Double Norwich Court Bob Cinques>, <Method Double Norwich Court Bob Maximus>]
+
 ```
 
 Other attributes can be passed as keyword arguments to further filter results:
 
 ```
->>> cccbr_library.search('Double Norwich', stage=8) # Filter results further
+>>> cccbr_methods.search('Double Norwich', stage=8) # Filter results further
 [<Method Double Norwich Court Bob Major>]
 
 ```
 
-As a convenience for more complicated searches, `cccbr_library.query` returns a SQLAlchemy `Query` object suitable for further filtering.
+As a convenience for more complicated searches, `cccbr_methods.query` returns a SQLAlchemy `Query` object suitable for further filtering.
 
-All of these are also available directly from the `Method` object, e.g. `Method.get` is equivalent to `cccbr_library.get`.
+All of these are also available directly from the `Method` object, e.g. `Method.get` is equivalent to `cccbr_methods.get`.
 
 # Database columns
 

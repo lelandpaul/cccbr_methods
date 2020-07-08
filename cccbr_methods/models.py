@@ -58,7 +58,8 @@ class Method(Base):
         Search for a method in the database and return the first result.
         """
         # If there's an exact match for the search_string, we want to return that
-        exact = session.query(Method).filter_by(title=search_string).first()
+        # but we still want to respect the other search terms
+        exact = session.query(Method).filter_by(title=search_string, **kwargs).first()
         if exact:
             return exact
         query = session.query(Method).filter(Method.title.like('%' + search_string + '%'))
