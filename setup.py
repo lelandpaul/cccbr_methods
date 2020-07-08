@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='cccbr_methods',
-      version='0.9',
+      version='0.92',
       description='A Pythonic interface to the CCCBR Methods Library',
       long_description=readme(),
       long_description_content_type='text/markdown',
@@ -14,6 +14,7 @@ setup(name='cccbr_methods',
       author_email='me@lelandpaul.com',
       license='MIT',
       packages=['cccbr_methods'],
+      package_data={'cccbr_methods': ['data/*']},
       install_requires=[
           'bs4',
           'sqlalchemy',
