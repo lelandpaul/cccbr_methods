@@ -11,7 +11,7 @@ module_path = '/'.join(__file__.split('/')[:-1])
 
 # SQLAlchemy Setup
 Base = declarative_base()
-engine = create_engine('sqlite:///{}/data/methods.db'.format(module_path))
+engine = create_engine('sqlite:///{}/data/methods.db?check_same_thread=False'.format(module_path))
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -81,7 +81,7 @@ class Method(Base):
     def full_notation(self):
         if not ',' in self.notation: return self.notation
 
-        
+
 
         segments = [seg.split('.') for seg in sub('-','.-.',self.notation).strip('.').split(',')]
 
