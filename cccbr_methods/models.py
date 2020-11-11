@@ -91,7 +91,7 @@ class Method(Base):
 
     @property
     def full_notation_list(self):
-        return sub('-','.-.', self.full_notation).strip('.').split('.')
+        return self.full_notation.split('.')
 
     def __repr__(self):
         return '<Method {}>'.format(self.title)
