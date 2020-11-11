@@ -107,7 +107,7 @@ The `Performance` class provides access to objects from the `performances` table
 
 # Updating the Database
 
-While I make an effort to keep the database distributed with this package up to date, it may sometimes lag the CCCBR library. The module therefore provides the means update the database on demand. `cccbr_methods.update()` will download and parse the library, adding any new methods to the database. A CLI entry point is also provided: `update-cccbr-methods`.
+While I make an effort to keep the database distributed with this package up to date, it may sometimes lag the CCCBR library. The module therefore provides the means update the database on demand. `cccbr_methods.update_database()` will download and parse the library, adding any new methods to the database. A CLI entry point is also provided: `update-cccbr-methods`.
 
 
 # License information
